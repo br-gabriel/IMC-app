@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View } from "react-native";
+import { ImcContext } from "../context/ImcContext";
+import ErrorMessage from "./errorMessage";
 import Form from './form';
 import Result from "./result";
 
 export default function MainContainer() {
+    const {errorMsg} = useContext(ImcContext);
+
     return (
         <View style={styles.container}>
             <Form />
-            <Result />
+            {errorMsg == null ? <Result /> : <ErrorMessage/>}
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -24,5 +28,5 @@ const styles = StyleSheet.create({
         
         marginTop: 25,
         padding: 20,
-    },
-})
+    }
+});
