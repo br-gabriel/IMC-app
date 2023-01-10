@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { ImcContext } from "../context/ImcContext";
 
 export default function Result() {
+    const {imcValue, imcCategory} = useContext(ImcContext);
+    
     return (
         <View>
             <View style={styles.resultContainer}>
                 <Text style={styles.resultLabel}>Seu IMC é igual a:</Text>
-                <Text style={styles.resultIMC}>22.4</Text>
+                <Text style={styles.resultIMC}>{imcValue}</Text>
             </View>
 
             <View style={styles.categoryContainer}>
                 <Text style={styles.resultLabel}>Você está com:</Text>
-                <Text style={styles.resultCategory}>PESO NORMAL</Text>
+                <Text style={styles.resultCategory}>{imcCategory}</Text>
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     resultContainer: {
@@ -40,4 +43,4 @@ const styles = StyleSheet.create({
         marginTop: 15,
         alignItems: 'center',
     }
-})
+});
