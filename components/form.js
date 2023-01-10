@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { ImcContext } from "../context/ImcContext";
 
 export default function Form() {
+    const {weight, setWeight, height, setHeight, btnText, validationForm} = useContext(ImcContext);
+
     return (
         <View>
             <Text style={styles.inputTitle}>Peso</Text>
             <TextInput
+                onChange={setWeight}
+                value={weight}
                 style={styles.inputArea}
                 placeholder="Ex: 85 kg"
                 keyboardType="numeric"
@@ -13,6 +18,8 @@ export default function Form() {
             
             <Text style={styles.inputTitle}>Altura</Text>
             <TextInput
+                onChange={setHeight}
+                value={height}
                 style={styles.inputArea}
                 placeholder="Ex: 1.8 m"
                 keyboardType="numeric"
@@ -20,13 +27,13 @@ export default function Form() {
 
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => {console.log('Clicou')}}
+                onPress={validationForm}
             >
-                <Text style={styles.buttonText}>CALCULAR</Text>
+                <Text style={styles.buttonText}>{btnText}</Text>
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     inputTitle: {
@@ -54,4 +61,4 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
     }
-})
+});
