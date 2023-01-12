@@ -3,13 +3,13 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-nativ
 import { ImcContext } from "../context/ImcContext";
 
 export default function Form() {
-    const {weight, setWeight, height, setHeight, btnText, validationForm} = useContext(ImcContext);
+    const {weight, setWeight, height, setHeight, validationForm, btnText} = useContext(ImcContext);
 
     return (
         <View>
             <Text style={styles.inputTitle}>Peso</Text>
             <TextInput
-                onChange={setWeight}
+                onChangeText={setWeight}
                 value={weight}
                 style={styles.inputArea}
                 placeholder="Ex: 85 kg"
@@ -18,7 +18,7 @@ export default function Form() {
             
             <Text style={styles.inputTitle}>Altura</Text>
             <TextInput
-                onChange={setHeight}
+                onChangeText={setHeight}
                 value={height}
                 style={styles.inputArea}
                 placeholder="Ex: 1.8 m"
