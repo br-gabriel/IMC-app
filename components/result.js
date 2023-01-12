@@ -6,8 +6,8 @@ export default function Result() {
     const {imcValue, imcCategory} = useContext(ImcContext);
     
     return (
-        <View>
-            <View style={styles.resultContainer}>
+        <View style={styles.container}>
+            <View style={styles.valueImcContainer}>
                 <Text style={styles.resultLabel}>Seu IMC é igual a:</Text>
                 <Text style={styles.resultIMC}>{imcValue}</Text>
             </View>
@@ -21,7 +21,10 @@ export default function Result() {
 };
 
 const styles = StyleSheet.create({
-    resultContainer: {
+    container: {
+        marginBottom: 50
+    },  
+    valueImcContainer: {
         marginTop: 35,
         alignItems: 'center',
     },
