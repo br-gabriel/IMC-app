@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { ImcContext } from "../context/ImcContext";
 import ErrorMessage from "./errorMessage";
 import Form from './form';
@@ -9,10 +9,11 @@ export default function MainContainer() {
     const {imcValue} = useContext(ImcContext);
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}
+        showsVerticalScrollIndicator={false}>
             <Form />
             {imcValue == null ? <ErrorMessage/> : <Result />}
-        </View>
+        </ScrollView>
     );
 };
 
