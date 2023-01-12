@@ -6,12 +6,12 @@ import Form from './form';
 import Result from "./result";
 
 export default function MainContainer() {
-    const {errorMsg} = useContext(ImcContext);
+    const {imcValue} = useContext(ImcContext);
 
     return (
         <View style={styles.container}>
             <Form />
-            {errorMsg == null ? <Result /> : <ErrorMessage/>}
+            {imcValue == null ? <ErrorMessage/> : <Result />}
         </View>
     );
 };
