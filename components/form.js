@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { 
+    StyleSheet, 
+    Text, 
+    TextInput, 
+    TouchableOpacity, 
+    Pressable, 
+    Keyboard 
+} from "react-native";
 import { ImcContext } from "../context/ImcContext";
 
 export default function Form() {
     const {weight, setWeight, height, setHeight, validationForm, btnText} = useContext(ImcContext);
 
     return (
-        <View>
+        <Pressable onPress={Keyboard.dismiss}>
             <Text style={styles.inputTitle}>Peso</Text>
             <TextInput
                 onChangeText={setWeight}
@@ -31,7 +38,7 @@ export default function Form() {
             >
                 <Text style={styles.buttonText}>{btnText}</Text>
             </TouchableOpacity>
-        </View>
+        </Pressable>
     );
 };
 
